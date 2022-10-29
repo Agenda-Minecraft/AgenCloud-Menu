@@ -1,0 +1,13 @@
+name: MEtcd-Menu
+version: 1.0.0-SNAPSHOT
+main: cat.kiwi.minecraft.metcdMenu.MEtcdMenuPlugin
+load: STARTUP
+authors: [ moeKiwiSAMA ]
+description: MetcdMenu
+depends: [ MEtcd ]
+api-version: 1.19
+commands:
+    metcdmenu:
+        description: Etcd register
+        usage: /metcdmenu <serverType>
+        aliases: [ mem ]
