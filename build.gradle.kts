@@ -28,7 +28,7 @@ dependencies {
     // minecraft apis
     implementation("org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT")
     implementation("de.tr7zw:item-nbt-api-plugin:2.10.0")
-    implementation("com.github.Agenda-Minecraft:MEtcd:2.0.2")
+    implementation("com.github.Agenda-Minecraft:MEtcd:2.0.7")
     testImplementation(kotlin("test"))
 }
 

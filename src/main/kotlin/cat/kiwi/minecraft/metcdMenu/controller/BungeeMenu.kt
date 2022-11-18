@@ -4,6 +4,7 @@ import cat.kiwi.minecraft.metcd.MEtcd
 import cat.kiwi.minecraft.metcd.model.GameStatus
 import cat.kiwi.minecraft.metcdMenu.MEtcdMenuPlugin
 import cat.kiwi.minecraft.metcdMenu.config.Config
+import cat.kiwi.minecraft.metcdMenu.serverName
 import cat.kiwi.minecraft.metcdMenu.setMEtcdCondition
 import org.bukkit.Bukkit
 import org.bukkit.Material
@@ -29,57 +30,46 @@ class BungeeMenu {
             var itemStack: ItemStack
             when (it.gameStatus) {
                 GameStatus.WAITING -> {
-
-                    itemStack = ItemStack(Material.GREEN_WOOL)
-
-                    // set name
-
+                    itemStack = ItemStack(Config.waitingMaterial)
                 }
 
                 GameStatus.LOADING -> {
-                    itemStack = ItemStack(Material.YELLOW_WOOL)
+                    itemStack = ItemStack(Config.loadingMaterial)
                 }
 
                 GameStatus.STARTING -> {
-                    itemStack = ItemStack(Material.RED_WOOL)
+                    itemStack = ItemStack(Config.startingMaterial)
                 }
 
                 GameStatus.RUNNING -> {
-                    itemStack = ItemStack(Material.RED_WOOL)
+                    itemStack = ItemStack(Config.runningMaterial)
                 }
 
                 GameStatus.ENDING -> {
-                    itemStack = ItemStack(Material.ORANGE_WOOL)
+                    itemStack = ItemStack(Config.endingMaterial)
                 }
 
                 GameStatus.EXITED -> {
-                    itemStack = ItemStack(Material.GRAY_WOOL)
+                    itemStack = ItemStack(Config.exitedMaterial)
                 }
             }
             val itemMeta: ItemMeta = itemStack.itemMeta!!
-            itemMeta.lore = arrayListOf(
-                "§aServer: ${it.uuid}",
-                "§aGameType: ${it.gameType}",
-                "§aCurrentOnline: ${it.currentOnline}",
-                "§aPlayers: ${it.players}",
-                "§aTotal: ${it.total}",
-                "§aGameStatus: ${it.gameStatus}",
-                "§aAddress: ${it.address}",
-                "§aPort: ${it.port}",
-                "§aVersion: ${it.version}",
-                "§aMeta: ${it.meta}"
-            )
-            itemMeta.setDisplayName("${it.gameStatus}")
+            itemMeta.lore = it.renderedLore
+            itemMeta.setDisplayName(it.renderedName)
             val serverConnectionName = it.address.replace(".", "-") + "-" + it.port
             itemStack.itemMeta = itemMeta
             itemStack = itemStack.setMEtcdCondition(it.gameStatus, serverConnectionName)
             result.add(itemStack)
         }
-        // padding to 10
+        // padding empty
         for (i in 1..Config.paddingTo - result.size) {
-            var itemStack = ItemStack(Material.GRAY_WOOL)
-            itemStack = itemStack.setMEtcdCondition(GameStatus.EXITED)
+            var itemStack = ItemStack(Config.exitedMaterial)
+            val itemMeta = itemStack.itemMeta
+            itemMeta!!.setDisplayName(Config.emptyItemName)
+            itemMeta!!.lore = Config.emptyItemLore
+            itemStack.itemMeta = itemMeta
 
+            itemStack = itemStack.setMEtcdCondition(GameStatus.EXITED)
             result.add(itemStack)
         }
 

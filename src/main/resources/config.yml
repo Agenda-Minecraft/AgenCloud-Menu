@@ -2,3 +2,41 @@ menu:
   paddingTo: 10
   title: "MEtcd"
   switchServerCommand: "atp %server%"
+displayReplacement:
+  - keys: gameStatus
+    waiting: "等待中"
+    loading: "加载中"
+    staring: "启动中"
+    running: "正在游戏"
+    ending: "正在结束"
+    exited: "已结束"
+material:
+  waiting: "GREEN_WOOL"
+  loading: "YELLOW_WOOL"
+  staring: "RED_WOOL"
+  running: "RED_WOOL"
+  ending: "ORANGE_WOOL"
+  exited: "GRAY_WOOL"
+template:
+  - serverType: "default"
+    itemName: "uuid: %uuid%"
+    itemLore:
+      - "gameType: %gameType%"
+      - "displayName: %displayName%"
+      - "currentOnline: %currentOnline%"
+      - "players: %players%"
+      - "total: %total%"
+      - "gameStatus: %gameStatus%"
+      - "address: %address%"
+      - "port: %port%"
+      - "version: %version%"
+      - "meta: %meta%"
+  - serverType: "custom"
+    itemName: "customItemName"
+    itemLore:
+      - "customLore1"
+      - "customLore2"
+emptyTemplate:
+  itemName: "服务器离线(Server not online)"
+  itemLore:
+    - "Not Online"
