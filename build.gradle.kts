@@ -22,9 +22,6 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-    // sql drivers
-    implementation("io.etcd:jetcd-core:0.7.3")
-
     // minecraft apis
     implementation("org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT")
     implementation("de.tr7zw:item-nbt-api-plugin:2.10.0")
@@ -47,7 +44,7 @@ tasks {
         archiveBaseName.set("MEtcdMenu")
         dependencies {
             exclude(dependency("org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT"))
-            exclude(dependency("com.github.Agenda-Minecraft:MEtcd:2.0.2"))
+            exclude(dependency("com.github.Agenda-Minecraft:MEtcd:2.0.7"))
             exclude(dependency("de.tr7zw:item-nbt-api-plugin:2.10.0"))
         }
     }
