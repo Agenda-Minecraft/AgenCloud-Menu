@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "cat.kiwi.minecraft"
-version = "1.0-SNAPSHOT"
+version = "1.0.2-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -25,7 +25,7 @@ dependencies {
     // minecraft apis
     implementation("org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT")
     implementation("de.tr7zw:item-nbt-api-plugin:2.10.0")
-    implementation("com.github.Agenda-Minecraft:MEtcd:2.0.7")
+    implementation("com.github.Agenda-Minecraft:AgendaCloud:3.0.1")
     testImplementation(kotlin("test"))
 }
 
@@ -40,11 +40,10 @@ tasks.withType<KotlinCompile> {
 
 tasks {
     named<ShadowJar>("shadowJar") {
-        mergeServiceFiles()
-        archiveBaseName.set("MEtcdMenu")
+        archiveBaseName.set("Acloud-Menu")
         dependencies {
             exclude(dependency("org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT"))
-            exclude(dependency("com.github.Agenda-Minecraft:MEtcd:2.0.7"))
+            exclude(dependency("com.github.Agenda-Minecraft:AgendaCloud:3.0.1"))
             exclude(dependency("de.tr7zw:item-nbt-api-plugin:2.10.0"))
         }
     }

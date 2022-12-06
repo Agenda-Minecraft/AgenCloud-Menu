@@ -18,7 +18,7 @@ class MEtcdMenuPlugin:JavaPlugin() {
         }
         server.pluginManager.registerEvents(ClickEvents(), this)
 
-        getCommand("metcdmenu")?.setExecutor(MEtcdMenuCommands())
+        getCommand("am")?.setExecutor(MEtcdMenuCommands())
     }
 
     override fun onDisable() {

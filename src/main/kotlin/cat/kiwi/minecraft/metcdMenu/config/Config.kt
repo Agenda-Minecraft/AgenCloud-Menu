@@ -21,6 +21,7 @@ object Config {
     val templateMap: MutableMap<String, ServerItemConfig> = HashMap()
     fun readConfig() {
         val instance = MEtcdMenuPlugin.instance
+        instance.saveDefaultConfig()
         paddingTo = instance.config.getInt("menu.paddingTo")
         title = instance.config.getString("menu.title") ?: "MEtcd"
         switchServerCommand = instance.config.getString("menu.switchServerCommand") ?: "atp %server%"

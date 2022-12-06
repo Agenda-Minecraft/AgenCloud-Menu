@@ -1,13 +1,12 @@
-name: MEtcd-Menu
-version: 1.0.0-SNAPSHOT
+name: AgendaCloud-Menu
+version: 1.0.2-SNAPSHOT
 main: cat.kiwi.minecraft.metcdMenu.MEtcdMenuPlugin
 load: STARTUP
 authors: [ moeKiwiSAMA ]
-description: MetcdMenu
+description: AgendaCloud Menu
 depends: [ MEtcd ]
-api-version: 1.19
+api-version: 1.16
 commands:
-    metcdmenu:
+    am:
         description: Etcd register
-        usage: /metcdmenu <serverType>
-        aliases: [ mem ]
+        usage: /am <serverType>

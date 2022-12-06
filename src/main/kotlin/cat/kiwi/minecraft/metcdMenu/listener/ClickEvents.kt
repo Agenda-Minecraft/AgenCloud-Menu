@@ -1,7 +1,7 @@
 package cat.kiwi.minecraft.metcdMenu.listener
 
-import cat.kiwi.minecraft.metcd.model.GameStatus
-import cat.kiwi.minecraft.metcd.utils.Logger
+import cat.kiwi.minecraft.acloud.model.GameStatus
+import cat.kiwi.minecraft.acloud.utils.Logger
 import cat.kiwi.minecraft.metcdMenu.config.Config
 import cat.kiwi.minecraft.metcdMenu.MEtcdStatus
 import cat.kiwi.minecraft.metcdMenu.isMEtcdItem

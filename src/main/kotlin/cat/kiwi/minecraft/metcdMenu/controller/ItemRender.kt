@@ -1,7 +1,7 @@
 package cat.kiwi.minecraft.metcdMenu.controller
 
-import cat.kiwi.minecraft.metcd.model.GameStatus
-import cat.kiwi.minecraft.metcd.model.ServerStatus
+import cat.kiwi.minecraft.acloud.model.GameStatus
+import cat.kiwi.minecraft.acloud.model.ServerStatus
 import cat.kiwi.minecraft.metcdMenu.config.Config
 import org.bukkit.inventory.meta.ItemMeta
 
@@ -14,12 +14,14 @@ val ServerStatus.renderedName: String
         return template!!.itemName.replace("%gameType%", this.gameType)
             .replace("%displayName%", this.displayName)
             .replace("%players%", this.players.joinToString(", "))
+            .replace("%currentOnline%", this.currentOnline.toString())
             .replace("%total%", this.total.toString())
             .replace("%gameStatus%", this.gameStatus.toString().gameStatusReplacement)
             .replace("%address%", this.address)
             .replace("%port%", this.port.toString())
             .replace("%version%", this.version)
             .replace("%meta%", this.meta)
+            .replace("%uuid%", this.uuid)
     }
 val ServerStatus.renderedLore: List<String>
     get() {
@@ -31,12 +33,14 @@ val ServerStatus.renderedLore: List<String>
             it.replace("%gameType%", this.gameType)
                 .replace("%displayName%", this.displayName)
                 .replace("%players%", this.players.joinToString(", "))
+                .replace("%currentOnline%", this.currentOnline.toString())
                 .replace("%total%", this.total.toString())
                 .replace("%gameStatus%", this.gameStatus.toString().gameStatusReplacement)
                 .replace("%address%", this.address)
                 .replace("%port%", this.port.toString())
                 .replace("%version%", this.version)
                 .replace("%meta%", this.meta)
+                .replace("%uuid%", this.uuid)
         }
         return result
     }

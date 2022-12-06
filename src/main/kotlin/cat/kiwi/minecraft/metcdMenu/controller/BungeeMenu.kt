@@ -1,7 +1,7 @@
 package cat.kiwi.minecraft.metcdMenu.controller
 
-import cat.kiwi.minecraft.metcd.MEtcd
-import cat.kiwi.minecraft.metcd.model.GameStatus
+import cat.kiwi.minecraft.acloud.AgendaCloud
+import cat.kiwi.minecraft.acloud.model.GameStatus
 import cat.kiwi.minecraft.metcdMenu.MEtcdMenuPlugin
 import cat.kiwi.minecraft.metcdMenu.config.Config
 import cat.kiwi.minecraft.metcdMenu.serverName
@@ -24,7 +24,7 @@ class BungeeMenu {
     }
 
     private fun getItemStacks(serverType: String): List<ItemStack> {
-        val servers = MEtcd.getServerStatusList(serverType)
+        val servers = AgendaCloud.getServerStatusList(serverType)
         val result = arrayListOf<ItemStack>()
         servers.forEach {
             var itemStack: ItemStack

@@ -1,6 +1,6 @@
 package cat.kiwi.minecraft.metcdMenu
 
-import cat.kiwi.minecraft.metcd.model.GameStatus
+import cat.kiwi.minecraft.acloud.model.GameStatus
 import de.tr7zw.nbtapi.NBTItem
 import org.bukkit.inventory.ItemStack
 
